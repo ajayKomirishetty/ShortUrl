@@ -1,0 +1,62 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Url</h1>
+
+Try a Different Url :  <%= link_to 'Try a different Url', urls_path, class: "btn btn-primary" %>
+
+<br>
+<br>
+
+Edit this Url :<%= link_to 'Edit this Url', urls_edit_path, class: "btn btn-primary" %>
+<br>
+<br>
+Delete this Url :<td><%= link_to 'Destroy', @url, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+
+
+<br>
+<br>
+  <table class="table">
+  <thead>
+	<tr>
+		<th>Link</th>       
+		<td> <%= @url.link %> </td> 
+	</tr>
+	<tr>
+		<th>Token</th>       
+		<td> <%= @url.token %> </td> 
+	</tr>
+	<tr>
+		<th>Tiny Url</th>       
+		<td><%= link_to @url.tiny_url, target: :_blank do %> <%= @url.tiny_url %>
+		<% end %> </td> 
+
+	</tr>
+	<tr>
+		<th>Visitors Count</th>       
+		<td> <%= @url.viewCount %> </td> 
+	</tr>
+	</thead>
+  </table>
+<br><br><br>
+
+
+  <table class="table border:1px ">
+  <thead>
+	<tr>
+	  <th>Visitor Id</th>
+	  <th>Visitor Ip</th>
+	</tr>
+  </thead>
+
+  <tbody>
+  <% @count = 0 %>
+	<% @url.visitors.each do |visitor| %>
+	  <tr>
+		<td> <%= @count += 1 %> </td>
+		<td><%= visitor.ip %></td>
+	  </tr>
+	<% end %>
+  </tbody>
+</table>
+ 
+

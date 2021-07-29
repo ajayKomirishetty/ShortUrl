@@ -1,0 +1,30 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Create a TinyURL</h1>
+
+<%= render 'form', url: @url %>
+
+<br><br><br>
+
+<h1>Recently created 15 URL's</h1>
+
+<table class="table">
+  <thead>
+	<tr>
+	  <th>Link</th>
+	  <th>Tiny URL</th>
+	  <th>Info</th>
+	  <th colspan="3"></th>
+	</tr>
+  </thead>
+
+  <tbody>
+	<% Url.order(created_at: :desc).limit(15).each do |url| %>
+	  <tr>
+		<td><%= url.link %></td>
+		<td><%= url.tiny_url %></td>
+		<td><%= link_to  url_info_path(:token => url.token), target: :_blank do %> <%=  url_info_path(:token => url.token) %> <% end %></td>
+	  </tr>
+	<% end %>
+  </tbody>
+</table>
