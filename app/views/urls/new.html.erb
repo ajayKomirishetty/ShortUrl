@@ -7,7 +7,7 @@
 <br><br><br>
 
 <h1>Recently created 15 URL's</h1>
-
+<% if Url.count > 0 %>
 <table class="table">
   <thead>
 	<tr>
@@ -28,3 +28,6 @@
 	<% end %>
   </tbody>
 </table>
+<% else %>
+No URL's created Recently. Try creating Tiny URL's.
+<% end %>

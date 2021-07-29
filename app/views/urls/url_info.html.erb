@@ -48,6 +48,8 @@ Delete this Url :<td><%= link_to 'Destroy', @url, method: :delete, data: { confi
 	</tr>
   </thead>
 
+<% if  @url.viewCount > 0 %>
+
   <tbody>
   <% @count = 0 %>
 	<% @url.visitors.each do |visitor| %>
@@ -57,6 +59,14 @@ Delete this Url :<td><%= link_to 'Destroy', @url, method: :delete, data: { confi
 	  </tr>
 	<% end %>
   </tbody>
+
+  <% else %>
+  <tr>
+  </tr>
+  <tr>
+		<td>
+   No Visitors, at the moment!!</td>
+  <% end %>
 </table>
  
 
