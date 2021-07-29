@@ -11,3 +11,12 @@ Here are some routes that can be accessed :
 / # home page where user can enter a URL
 /:token # redirects to full URL
 /:token/info # info about URL and visitor count
+/:token/info/edit # edit the url
+
+Project setup :
+```
+1. bundle install - Install all gems
+2. rails db:migrate - run all migration files
+3. rails webpacker:install - This project run on rails 6.x version. starting from rails 6, webpacker is the default javascript compiler.
+4. rails s
+```
